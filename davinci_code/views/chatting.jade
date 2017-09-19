@@ -1,0 +1,12 @@
+extends layout
+
+block content
+	head
+		script(src="/js/jquery/jquery-3.2.1.min.js")
+		script(src="/js/socket.io.js")
+		script(src="/js/chatting.js")
+		
+	h1 #{title}
+	input#message
+	button#user_set user_set
+	div#message_area
