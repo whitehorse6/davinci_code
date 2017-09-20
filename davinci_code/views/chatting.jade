@@ -2,11 +2,23 @@ extends layout
 
 block content
 	head
-		script(src="/js/jquery/jquery-3.2.1.min.js")
 		script(src="/js/socket.io.js")
 		script(src="/js/chatting.js")
-		
-	h1 #{title}
-	input#message
-	button#user_set user_set
-	div#message_area
+	div.container
+		h1 #{title}
+		label rool list load
+		div.row
+			button#room_list_load room_list_load
+		label rool list
+		div.row#room_list_area
+			
+		label rool make
+		div.row
+			input#room
+			button#room_make room_make
+			
+		label rool chatting list
+		div.row
+			textarea#message_area.form-control(rows=5, disabled)
+			input#message
+			button#message_set message_append

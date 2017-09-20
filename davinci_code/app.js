@@ -43,7 +43,18 @@ const server = http.createServer(app).listen(app.get('port'), function(){
 const io = socket_io.listen(server);
 io.on('connection', (soc) => {
 	soc.on('message', (data) => {
-		console.log("aaa" + data);
-		soc.emit('message', data);
+		console.log("id - " + soc.id);
+		console.log("massage - " + data);
+		soc.emit('message', "id - " + soc.id + "    massage - " + data);
+	});
+	soc.on('req_room_list', (rooms) => {
+		console.log(rooms);
+		soc.emit('res_rooms', io.sockets.manager.rooms);
+	});
+	soc.on('room_make', (room) => {
+		soc.join(room);
+	});
+	soc.on('req_rooms', (room) => {
+		soc.emit('res_rooms', io.sockets.manager.rooms);
 	});
 })
