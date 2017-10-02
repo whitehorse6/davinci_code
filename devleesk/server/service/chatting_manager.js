@@ -1,7 +1,6 @@
-const socket_io = require('socket.io');
 
-const chatting_manager = (server) => {
-	const io = socket_io.listen(server);
+
+const chatting_manager = (server, io) => {
 	io.on('connection', (soc) => {
 		soc.on('message_to_server', (message, room_id) => {
 			io.sockets.in(room_id).emit('message_to_client', {

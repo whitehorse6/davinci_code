@@ -1,0 +1,69 @@
+extends ../layout
+
+block content
+	head
+		script(src="/js/socket.io.js")
+		script(src="/js/davinci_code/socket_manager.js")
+		script(src="/js/davinci_code/user_manager.js")
+		script(src="/js/davinci_code/channel_manager.js")
+		script(src="/js/davinci_code/room_manager.js")
+	div.container
+		div.row
+			h1 #{title}
+				span#return_message_area(style="color:red")
+				
+			div#login_area.col-sm-12
+				h3 login  [id list - devleesk, dgkwon, babuki]
+				hr
+				div.form-inline
+					div.form-group
+						label id : 
+						input#user_id.form-control
+						button#login_button.btn.btn-default login
+						
+			div#channel_area.col-sm-12
+				//(style="display:none")
+				h3 channel
+				hr
+				div.row
+					div#game_make_area.col-sm-12
+						div.form-inline
+							div.form-group
+								label room make : 
+								input#room_name.form-control
+								button#make_room_button.btn.btn-default room make
+					hr
+					div.col-sm-8
+						label room list
+						table.table.table-hover
+							thead
+								tr
+									th room_name
+									th members
+									th max_member
+									th status
+							tbody#game_room_list_area
+								tr
+									td aa
+									td bb
+									td dc
+									td dd
+					div.col-sm-4
+						label user list
+						div.row
+							table.table
+								thead
+									tr
+										th user_id
+										th socket_id
+								tbody#user_list_area
+			div.row
+				//(style="display:none")
+				label game_room_info
+				div.col-sm-8
+					label game area
+					div#game_area.row
+				div.col-sm-4
+					label user list
+					div#user_area.row
+		

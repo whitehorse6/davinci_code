@@ -4,12 +4,24 @@
  */
 
 var express = require('express')
+	, http = require('http')
+	, path = require('path')
+	
 	, routes = require('./server/controller')
 	, chatting = require('./server/controller/chatting')
 	, user = require('./server/controller/user')
-	, http = require('http')
-	, path = require('path')
-	, chatting_manager = require('./server/service/chatting_manager');
+	, davinci_code = require('./server/controller/davinci_code/davinci_code')
+	, chatting_manager = require('./server/service/chatting_manager')
+	
+	, user_manager = require('./server/service/davinci_code/user_manager')
+	, channel_manager = require('./server/service/davinci_code/channel_manager')
+	, room_manager = require('./server/service/davinci_code/room_manager')
+	
+	, USER_LIST = require('./server/model/USER_LIST')
+//	, RESULT = require('./server/model/RESULT')
+	
+	
+	;
 
 var app = express();
 
@@ -33,10 +45,19 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/chatting', chatting.chatting);
 app.get('/users', user.list);
+app.get('/davinci_code', davinci_code.main);
 
 
 const server = http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
 
-chatting_manager.chatting_manager(server);
+const socket_io = require('socket.io');
+const io = socket_io.listen(server);
+chatting_manager.chatting_manager(server, io);
+
+global.user_list = new USER_LIST.USER_LIST();
+
+user_manager.user_manager(server, io);
+channel_manager.channel_manager(server, io);
+room_manager.room_manager(server, io);
