@@ -35,6 +35,18 @@ let user_manager = (server, io) => {
 			console.log(global.user_list.get_list());
 			soc.emit('login_result', result.get_result());
 		})
+		soc.on('disconnect', () =>{
+			console.log(soc.id + " - disconnect!!")
+			global.user_list.remove_user_by_socket_id(soc.id);
+			global.room_list.leave(
+				global.room_list.get_room_by_user_info(
+					global.user_list.get_user_by_socket_id(soc.id)
+				),
+				global.user_list.get_user_by_socket_id(soc.id)
+			)
+			io.sockets.emit('user_lit_to_client', global.user_list.get_list());
+			io.sockets.emit('room_list_to_client', global.room_list.get_list());
+		})
 	})
 }
 
