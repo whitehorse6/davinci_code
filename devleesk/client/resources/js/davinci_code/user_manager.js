@@ -29,4 +29,5 @@ var login_succes = function(user_id){
 	$("#login_area").hide();
 	$("#game_info_area").show();
 	socket.emit('get_user_list');
+	socket.emit('get_room_list');
 }

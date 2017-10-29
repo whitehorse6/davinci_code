@@ -16,6 +16,14 @@ let USER_LIST = function (){
 		})
 		return m;
 	}
+	this.get_user_by_socket_id = function(socket_id){
+		var m = {};
+		this.user_list.forEach(function(item){
+			if (item.socket_id == socket_id)
+				m = item;
+		})
+		return m;
+	}
 	this.get_list = function(){
 		return this.user_list;
 	}
@@ -24,6 +32,14 @@ let USER_LIST = function (){
 			if (item.id == user_id){
 				this.user_list[idx].socket_id == socket_id;
 			}
+		})
+	}
+	this.remove_user_by_socket_id = function(socket_id){
+		var arr = [];
+		this.user_list.forEach((item)=>{
+			if (item.socket_id != socket_id)
+				arr.push(item);
+		this.user_list = arr;
 		})
 	}
 }

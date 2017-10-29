@@ -18,6 +18,8 @@ var express = require('express')
 	, room_manager = require('./server/service/davinci_code/room_manager')
 	
 	, USER_LIST = require('./server/model/USER_LIST')
+	, ROOM_LIST = require('./server/model/ROOM_LIST')
+	
 //	, RESULT = require('./server/model/RESULT')
 	
 	
@@ -57,6 +59,7 @@ const io = socket_io.listen(server);
 chatting_manager.chatting_manager(server, io);
 
 global.user_list = new USER_LIST.USER_LIST();
+global.room_list = new ROOM_LIST.ROOM_LIST();
 
 user_manager.user_manager(server, io);
 channel_manager.channel_manager(server, io);
