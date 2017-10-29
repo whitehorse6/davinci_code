@@ -57,13 +57,57 @@ block content
 										th user_id
 										th socket_id
 								tbody#user_list_area
-			div.row
+			div.col-sm-12
 				//(style="display:none")
-				label game_room_info
-				div.col-sm-8
-					label game area
-					div#game_area.row
-				div.col-sm-4
-					label user list
-					div#user_area.row
+				h3 game_room_info
+				div.row
+					div.col-sm-8
+						label game area
+						div#game_area.row
+							div.col-sm-12
+								ul.list-group
+									li.list-group-item.list-group-item-success
+										div.btn-group.btn-group-justified
+											a.btn.btn-default 1
+											a.btn.btn-black 1
+											a.btn.btn-black 2
+											a.btn.btn-black 2
+											a.btn.btn-default 3
+											a.btn.btn-default 4
+											a.btn.btn-black 5
+											a.btn.btn-black 6
+									li.list-group-item.list-group-item-info
+										div.btn-group.btn-group-justified
+											a.btn.btn-default 2
+											a.btn.btn-black 3
+											a.btn.btn-default x
+											a.btn.btn-black x
+											a.btn.btn-black x
+											a.btn.btn-default x
+											a.btn.btn-black 7
+											a.btn.btn-default x
+									li.list-group-item.list-group-item-warning
+										div.btn-group.btn-group-justified
+											a.btn.btn-default x
+											a.btn.btn-black x
+											a.btn.btn-default x
+											a.btn.btn-default x
+											a.btn.btn-default x
+											a.btn.btn-default x
+											a.btn.btn-black x
+											a.btn.btn-black 8
+									li.list-group-item.list-group-item-danger
+										div.btn-group.btn-group-justified
+											a.btn.btn-default 1
+											a.btn.btn-black x
+											a.btn.btn-default x
+											a.btn.btn-black 2
+											a.btn.btn-default x
+											a.btn.btn-default 4
+											a.btn.btn-black x
+											a.btn.btn-black 6
+							
+					div.col-sm-4
+						label user list
+						div#user_area.row
 		
