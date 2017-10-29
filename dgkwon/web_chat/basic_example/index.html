@@ -1,0 +1,104 @@
+<!DOCTYPE>
+<html>
+<head>
+  <style>
+    .pannel{
+      float: left;
+    }
+    #container{
+      width: 400px;
+      border: 1px dotted #000;
+      padding: 10px;
+      height: 328px;
+    }
+    #chatBox {
+      border: 1px solid #000;
+      width: 400px;
+      height: 300px;
+      margin-bottom: 5px;
+    }
+    #room li {
+      padding: 5px 0px;
+    }
+    #chat li {
+      padding: 5px 0px;
+    }
+    #name {
+      width: 78px;
+    }
+    #msg {
+      width: 256px;
+    }
+
+  </style>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <script src="../socket.io/socket.io.js"></script>
+  <script type="text/javascript">
+    window.onload = function(){
+      var socket = io('http://localhost:8080');
+      socket.emit('sMsg', { 'name': 'Server', 'msg': "Hello Websocket" });
+      socket.on('join', function(data){
+        console.log(data)
+        // var li = document.createElement('li');
+        // li.innerHTML = data.name + " : " + data.msg;
+        // document.getElementById('chat').appendChild(li);
+      });
+      socket.on('rMsg', function(data){
+        console.log(data)
+        var li = document.createElement('li');
+        li.innerHTML = data.name + " : " + data.msg;
+        document.getElementById('chat').appendChild(li);
+      });
+      //   //
+      document.getElementById('submit').onclick = function(){
+        var val = document.getElementById('msg').value;
+        var name = document.getElementById('name').value;
+        console.log(val, name)
+        socket.emit('sMsg', {
+          'name' : name,
+          'msg' : val
+        });
+        console.log("Done")
+        document.getElementById('msg').value = '';
+      }
+      document.getElementById('submit_room').onclick = function(){
+        var roomname = document.getElementById('roomname').value;
+        socket.emit('join', {
+          'roomname' : roomname
+        });
+        console.log("Done")
+        // document.getElementById('msg').value = '';
+      }
+  }
+  </script>
+</head>
+<body>
+  <div class=body>
+    <div class="pannel" id="room_pannel">
+      <div id = "container">
+        <ul id="room">
+          <li> 1번방 </li>
+          <li> 2번방 </li>
+          <li> 3번방 </li>
+          <li> 4번방 </li>
+          <li> 5번방 </li>
+        </ul>
+      </div>
+      <input type="text" id="roomname" />
+      <button id="submit_room">보내기</button>
+    </div>
+    <div class="pannel"  id="chat_pannel">
+      <div id="container">
+        <ul id="chat"></ul>
+      </div>
+      <input type="text" id="name" />
+      <input type="text" id="msg" />
+      <button id="submit">보내기</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+</script>
