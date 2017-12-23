@@ -20,6 +20,7 @@ let RESULT = function (return_code, return_type, return_message, return_result){
 		}
 	};
 }
+
 let user_manager = (server, io) => {
 	io.on('connection', (soc) =>{
 		soc.on('login', (user_id) =>{

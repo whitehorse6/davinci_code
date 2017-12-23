@@ -3,22 +3,29 @@
  * Module dependencies.
  */
 
+var path = "./server";
+var controller_path = path + "/controller";
+var service_path = path + "/service";
+var model_path = path + "/model";
+
+
+
 var express = require('express')
 	, http = require('http')
 	, path = require('path')
 	
-	, routes = require('./server/controller')
-	, chatting = require('./server/controller/chatting')
-	, user = require('./server/controller/user')
-	, davinci_code = require('./server/controller/davinci_code/davinci_code')
-	, chatting_manager = require('./server/service/chatting_manager')
+	, routes = require(controller_path)
+	, chatting = require(controller_path + '/chatting')
+	, user = require(controller_path + '/user')
+	, davinci_code = require(controller_path + '/davinci_code/davinci_code')
 	
-	, user_manager = require('./server/service/davinci_code/user_manager')
-	, channel_manager = require('./server/service/davinci_code/channel_manager')
-	, room_manager = require('./server/service/davinci_code/room_manager')
+	, chatting_manager = require(service_path + '/chatting_manager')
+	, user_manager = require(service_path + '/davinci_code/user_manager')
+	, channel_manager = require(service_path + '/davinci_code/channel_manager')
+	, room_manager = require(service_path + '/davinci_code/room_manager')
 	
-	, USER_LIST = require('./server/model/USER_LIST')
-	, ROOM_LIST = require('./server/model/ROOM_LIST')
+	, USER_LIST = require(model_path + '/USER_LIST')
+	, ROOM_LIST = require(model_path + '/ROOM_LIST')
 	
 //	, RESULT = require('./server/model/RESULT')
 	
