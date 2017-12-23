@@ -1,0 +1,13 @@
+{
+  "name": "study",
+  "homepage": "https://github.com/whitehorse6/davinci_code",
+  "authors": [
+    "dgkwon"
+  ],
+  "description": "study for express",
+  "main": "",
+  "license": "mit",
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

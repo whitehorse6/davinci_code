@@ -1,0 +1,118 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+/* Chatting */
+.chat-box {
+    display: block;
+    color: #34495e;
+    margin: 0 0 30px 0;
+}
+
+/* row */
+.chat-box li {
+    display: block;
+    padding: 10px;
+}
+
+/* 첫번째 row의 끝을 둥글게 한다 */
+.chat-box li:first-child {
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;<br />
+}
+
+/* 마지막 row의 끝을 둥글게 한다 */
+.chat-box li:last-child {
+    -webkit-border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-bottomright: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+/*"이름 :" 이 쓰여지는 부분 */
+.chat-box li span {
+    padding: 0 30px 0 0;
+    color: #7f8c8d;
+}
+
+/* 홀수 row의 색 */
+.chat-box .odd {
+    background-color: #ecf0f1;
+}
+
+/* 짝수 row의 색 */
+.chat-box .even {
+    background-color: #e1e5e5;
+}
+
+
+/* Button Control */
+
+.btn {
+    min-width: 85px;
+    border-radius: 0;
+    padding: 10px 12px
+}
+
+.btn-warning {
+    border: 1px solid rgba(10,107,165,.5);
+    background-color: #fff
+}
+
+.btn-warning:active,.btn-warning:active:hover,.btn-warning:focus,.btn-warning:hover {
+    border: 1px solid rgba(10,107,165,.5);
+    background-color: rgba(10,107,165,.1)
+}
+
+.btn-bg-gray {
+    color: #fff;
+    background-color: rgba(119,119,119,.7)
+}
+
+.btn-bg-gray:active,.btn-bg-gray:hover {
+    color: #fff;
+    background-color: rgba(119,119,119,.9)
+}
+
+.form-control,.input-group-addon {
+    border-color: #dadada;
+    background-color: #fff;
+    border-radius: 0
+}
+
+.btn-container {
+    margin: 10px auto
+}
+
+.btn-container.top {
+    margin-top: 0
+}
+
+.btn-container.bottom {
+    padding-top: 10px;
+    margin-bottom: 30px
+}
+
+.btn-container.right {
+    text-align: right
+}
+
+.btn-container.center {
+    text-align: center
+}
+
+.btn-container .btn {
+    min-width: 70px;
+    font-size: 16px
+}

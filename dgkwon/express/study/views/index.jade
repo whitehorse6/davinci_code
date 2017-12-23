@@ -1,0 +1,15 @@
+extends layout
+
+block head
+  h1= title
+  p Welcome to #{title}
+block content
+  form(action="channel")
+    div.form-group
+      label(for="id_user_name") ID
+      input.form-control#id_username(type="text")
+    div.form-group
+      label(for="id_password") password
+      input.form-control#id_password(type="text" )
+    div.btn-container.right
+      button.btn-bg-gray(type="submit") Login
