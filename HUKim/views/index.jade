@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	h1= title
+	input#userName(type="text",value="userName")
+	input#registerUserBtn(type="button",value="register")
+	br
+	input#roomName(type="text",value="roomName")
+	input#makeARoomBtn(type="button",value="make a room")
+	br
+	div#roomList
+	input#exitRoomBtn(type="button",value="exit the room")
+	input#enterRoomBtn(type="button",value="enter the room")
+	input#refreshRoomList(type="button",value="refresh")
+	div#chatWindows
+	input#chatMessage(type="textedit")
+	input#submitButton(type="button",value="submit")
+	script(src='/socket.io/socket.io.js')
+	script(src='/javascript/ChattingClient.js')
+	
+		
+
+		
