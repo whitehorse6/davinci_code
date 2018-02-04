@@ -1,0 +1,29 @@
+{
+  "name": "static",
+  "homepage": "https://github.com/whitehorse6/davinci_code",
+  "authors": [
+    "duskan <kdg9037@gmail.com>"
+  ],
+  "install": {
+    "path": "static",
+    "sources": {
+      "bootstrap": "vendors/bootstrap/dist/**.*"
+    }
+  },
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendors",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "jquery": "^3.3.1",
+    "socket.io-client": "^2.0.4"
+  }
+}

@@ -1,0 +1,15 @@
+extends layout
+
+block external_head
+  script(src="socket.io-client/dist/socket.io.js")
+
+block content
+   h2 this is room!!
+   .room-list.contents
+   .chat
+     ul#chat-log
+   .input-part
+   input.float-left.input-group.col-sm-9#id-text-log
+   button.col-sm-3#id-send-message send
+
+   script(src="client.js")

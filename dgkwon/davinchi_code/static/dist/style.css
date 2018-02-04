@@ -1,0 +1,13 @@
+.chat{
+  height: 300px;
+  border: 1px;
+  background-color: #EEE;
+}
+
+.alarm{
+  background-color: #CCC;
+}
+
+.room-notice{
+  background-color: #CCF;
+}
